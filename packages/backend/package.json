@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "tsc && node dist/server.js",
-    "lint": "npx eslint ./src/*",
-    "lint-fix": "npx eslint ./src/* --fix"
+    "lint": "npx eslint \"src/*\"",
+    "lint-fix": "npx eslint \"src/*\" --fix"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
