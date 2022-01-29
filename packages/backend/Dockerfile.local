@@ -1,0 +1,16 @@
+FROM node:17-buster
+
+WORKDIR /var/www/backend
+
+ARG user
+ARG uid
+
+RUN npm i
+
+EXPOSE $BACKEND_PORT
+
+RUN useradd -G www-data,root -u $uid -d /home/$user $user
+
+COPY . .
+
+USER $user
