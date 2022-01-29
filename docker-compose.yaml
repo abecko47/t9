@@ -1,14 +1,11 @@
 version: "3.9"
 services:
-  backend:
-    container_name: backend
+  t9-backend:
+    image: node:17-buster
+    container_name: t9-backend
     build:
       context: ./packages/backend
       dockerfile: Dockerfile.local
-      args:
-        user: t9-admin
-        uid: 1000
-    image: t9-backend
     restart: unless-stopped
     env_file: .env
     ports:
@@ -17,14 +14,14 @@ services:
       - t9-app
     working_dir: /var/www/backend
     volumes:
-      - ./packages/backend:/var/www/backend
+      - ./:/var/www/backend
 
-  nginx:
+  t9-nginx:
     image: nginx:1.17-alpine
     container_name: t9-nginx
     restart: unless-stopped
     ports:
-      - "3000:80"
+      - "3000:1337"
     volumes:
       - ./:/var/www
       - ./docker-compose/nginx:/etc/nginx/conf.d

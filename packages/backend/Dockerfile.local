@@ -1,16 +1,14 @@
 FROM node:17-buster
 
+RUN mkdir -p /var/www/backend
 WORKDIR /var/www/backend
 
-ARG user
-ARG uid
+COPY . .
+
+RUN npm i typescript @types/express
 
 RUN npm i
 
 EXPOSE $BACKEND_PORT
 
-RUN useradd -G www-data,root -u $uid -d /home/$user $user
-
-COPY . .
-
-USER $user
+CMD ["npm", "run", "start"]
