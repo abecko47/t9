@@ -1,33 +1,34 @@
-version: "3.9"
+version: "3"
 services:
-  t9-backend:
-    image: node:17-buster
-    container_name: t9-backend
+  backend:
+    container_name: backend
     build:
+      dockerfile: ./Dockerfile.local
       context: ./packages/backend
-      dockerfile: Dockerfile.local
     restart: unless-stopped
-    env_file: .env
     ports:
-      - "${BACKEND_PORT}:${BACKEND_PORT}"
-    networks:
-      - t9-app
+      - "${BACKEND_PORT}:3001"
     working_dir: /var/www/backend
     volumes:
-      - ./:/var/www/backend
-
-  t9-nginx:
-    image: nginx:1.17-alpine
-    container_name: t9-nginx
+      - ./packages/backend:/var/www/backend
+      - /var/www/backend
+    networks:
+      - t9-network
+  frontend:
+    container_name: frontend
+    build:
+      dockerfile: ./Dockerfile.local
+      context: ./packages/frontend
     restart: unless-stopped
     ports:
-      - "3000:1337"
+      - "${FRONTEND_PORT}:3000"
+    working_dir: /var/www/frontend
     volumes:
-      - ./:/var/www
-      - ./docker-compose/nginx:/etc/nginx/conf.d
+      - ./packages/frontend:/var/www/frontend
+      - /var/www/frontend
     networks:
-      - t9-app
+      - t9-network
 
 networks:
-  t9-app:
+  t9-network:
     driver: bridge

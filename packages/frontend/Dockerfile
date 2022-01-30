@@ -1,6 +1,6 @@
 FROM node:17-alpine as build
 
-WORKDIR /var/www/backend
+WORKDIR /var/www/frontend
 
 COPY . .
 
