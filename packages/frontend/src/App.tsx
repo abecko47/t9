@@ -10,7 +10,7 @@ function App() {
         <p>
           Edit
           {' '}
-          <code>src/App.tsx</code>
+          <code>a/zxczxc.ss</code>
           {' '}
           and save to reload.
         </p>

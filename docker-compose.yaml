@@ -1,31 +1,33 @@
 version: "3"
 services:
   backend:
-    container_name: backend
+    container_name: t9-backend
     build:
       dockerfile: ./Dockerfile.local
       context: ./packages/backend
-    restart: unless-stopped
+    restart: always
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
     ports:
-      - "${BACKEND_PORT}:3001"
-    working_dir: /var/www/backend
+      - "3001:3001"
     volumes:
-      - ./packages/backend:/var/www/backend
-      - /var/www/backend
+      - ./packages/backend:/var/www
+      - /var/www/node_modules
     networks:
       - t9-network
   frontend:
-    container_name: frontend
+    container_name: t9-frontend
     build:
       dockerfile: ./Dockerfile.local
       context: ./packages/frontend
-    restart: unless-stopped
+    restart: always
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
     ports:
-      - "${FRONTEND_PORT}:3000"
-    working_dir: /var/www/frontend
+      - "3000:3000"
     volumes:
-      - ./packages/frontend:/var/www/frontend
-      - /var/www/frontend
+      - ./packages/frontend:/var/www
+      - /var/www/node_modules
     networks:
       - t9-network
 
