@@ -6,6 +6,4 @@ const port = 3001;
 
 app.use('/', router);
 
-app.listen(port, () => {
-
-});
+app.listen(port, () => {});
