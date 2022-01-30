@@ -1,8 +1,10 @@
 import express, {Router} from 'express';
 const router:Router = express.Router();
+import bodyParser from "body-parser";
+import {t9Controller} from "../controller/t9Controller";
 
-import {t9Controller} from "../controller/t9";
 const t9 = t9Controller();
+const jsonParser = bodyParser.json();
 
 router.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
@@ -10,7 +12,7 @@ router.use((req, res, next) => {
     next();
 });
 
-router.get('/t9', t9.getWords);
+router.post('/t9', jsonParser, t9.predictWords);
 
 export {
     router
