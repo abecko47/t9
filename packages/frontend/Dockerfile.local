@@ -1,12 +1,16 @@
 FROM node:17-alpine as build
 
-WORKDIR /var/www/frontend
+WORKDIR /var/www
 
 COPY package.json .
 COPY package-lock.json .
 
-RUN npm ci
+RUN npm i
 
 COPY . .
+
+RUN chown -R node:node /var/www
+
+USER node
 
 CMD ["npm", "run", "start"]
