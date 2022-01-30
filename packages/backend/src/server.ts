@@ -1,11 +1,10 @@
 import express from 'express';
+import {router} from "./routes/routes";
 
 const app = express();
 const port = 3001;
 
-app.get('/aaa', (req, res) => {
-  res.json({ foo: 'zzasdasdzz' })
-});
+app.use('/', router);
 
 app.listen(port, () => {
 
