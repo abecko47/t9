@@ -19,7 +19,6 @@ const t9Controller = () => {
                 console.log(12)
                 error = ErrorMessage.BAD_NUMBER;
                 const response:T9Response = {data: null, error: error};
-                res.status(500);
                 res.send(response);
                 return;
             }
@@ -27,11 +26,9 @@ const t9Controller = () => {
             const predictedWords = t9.predict(body.numbers).slice(0, body.words);
 
             const response:T9Response = {data: predictedWords, error: null};
-            res.status(200);
             res.send(response);
         } catch (e:any) {
             const response:T9Response = {data: null, error: error};
-            res.status(500);
             res.send(response);
         }
     }
