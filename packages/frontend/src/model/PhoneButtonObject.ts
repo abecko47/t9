@@ -1,5 +1,6 @@
 export interface PhoneButtonObject {
     number: string,
     onClick: (value: string) => void,
-    isDisabled: boolean
+    isDisabled: boolean,
+    letters: string
 }

@@ -4,7 +4,7 @@ import PhoneKeyboard from './PhoneKeyboard';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app-wrapper">
       <PhoneKeyboard />
     </div>
   );

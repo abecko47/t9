@@ -77,26 +77,44 @@ function PhoneKeyboard() {
     }
 
     return (
-        <div>
-            <DisplayErrorMessage displayError={displayError}/>
-            <p>
-                {historyInput} {phoneOutput}
-            </p>
-            <p>
-                {words.map((value) => <button key={`word-${value}`} onClick={() => handleWordChoose(value)}>{value}</button>) }
-            </p>
-            <PhoneButton isDisabled={isFetching} number="1" onClick={(e) => handleInputChange(e)}/>
-            <PhoneButton isDisabled={isFetching} number="2" onClick={(e) => handleInputChange(e)}/>
-            <PhoneButton isDisabled={isFetching} number="3" onClick={(e) => handleInputChange(e)}/> <br />
-            <PhoneButton isDisabled={isFetching} number="4" onClick={(e) => handleInputChange(e)}/>
-            <PhoneButton isDisabled={isFetching} number="5" onClick={(e) => handleInputChange(e)}/>
-            <PhoneButton isDisabled={isFetching} number="6" onClick={(e) => handleInputChange(e)}/> <br />
-            <PhoneButton isDisabled={isFetching} number="7" onClick={(e) => handleInputChange(e)}/>
-            <PhoneButton isDisabled={isFetching} number="8" onClick={(e) => handleInputChange(e)}/>
-            <PhoneButton isDisabled={isFetching} number="9" onClick={(e) => handleInputChange(e)}/> <br />
-            <PhoneButton isDisabled={isFetching} number="0" onClick={(e) => handleInputChange(e)}/> <br />
+        <div className="col-flex-container center">
+            <div className="absolute-top">
+                <DisplayErrorMessage displayError={displayError}/>
+            </div>
+            <div className="row-flex-container height-auto">
+                <span>{historyInput} {phoneOutput}</span>
+            </div>
 
-            <button disabled={isFetching} onClick={() => clearState()}>-</button>
+            <div className="row-flex-container center height-auto">
+                {words.map((value) => <button className="word-button margin-right-12 margin-left-12" key={`word-${value}`} onClick={() => handleWordChoose(value)}>{value}</button>) }
+            </div>
+            <div className="row-flex-container center width-auto height-auto margin-top-24">
+                <div className="col-flex-container center">
+                    <div className="row-flex-container center">
+                        <PhoneButton isDisabled={isFetching} number="1" letters="(_)" onClick={(e) => handleInputChange(e)}/>
+                        <PhoneButton isDisabled={isFetching} number="2" letters="ABC" onClick={(e) => handleInputChange(e)}/>
+                        <PhoneButton isDisabled={isFetching} number="3" letters="DEF" onClick={(e) => handleInputChange(e)}/>
+                    </div>
+                    <div className="row-flex-container center">
+                        <PhoneButton isDisabled={isFetching} number="4" letters="GHI" onClick={(e) => handleInputChange(e)}/>
+                        <PhoneButton isDisabled={isFetching} number="5" letters="JKL" onClick={(e) => handleInputChange(e)}/>
+                        <PhoneButton isDisabled={isFetching} number="6" letters="MNO" onClick={(e) => handleInputChange(e)}/>
+                    </div>
+                    <div className="row-flex-container center">
+                        <PhoneButton isDisabled={isFetching} number="7" letters="PQRS" onClick={(e) => handleInputChange(e)}/>
+                        <PhoneButton isDisabled={isFetching} number="8" letters="TUV" onClick={(e) => handleInputChange(e)}/>
+                        <PhoneButton isDisabled={isFetching} number="9" letters="WXYZ" onClick={(e) => handleInputChange(e)}/>
+                    </div>
+                    <div className="row-flex-container right">
+                        <PhoneButton letters="___" isDisabled={isFetching} number="0" onClick={(e) => handleInputChange(e)}/>
+                        <div className="row-flex-container width-auto">
+                            <button className="mobile-button col-flex-container width-auto" disabled={isFetching} onClick={() => clearState()}>
+                                <div>C</div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

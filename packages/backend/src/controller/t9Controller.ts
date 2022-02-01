@@ -16,7 +16,6 @@ const t9Controller = () => {
             const body:T9Request = req.body;
 
             if (!isNumbersValid(body.numbers)) {
-                console.log(12)
                 error = ErrorMessage.BAD_NUMBER;
                 const response:T9Response = {data: null, error: error};
                 res.send(response);

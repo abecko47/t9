@@ -4,7 +4,10 @@ import {PhoneButtonObject} from '../model/PhoneButtonObject'
 
 function PhoneButton(props: PhoneButtonObject) {
     return (
-        <button disabled={props.isDisabled} onClick={() => props.onClick(props.number)}>{props.number}</button>
+        <button className="mobile-button col-flex-container width-auto" disabled={props.isDisabled} onClick={() => props.onClick(props.number)}>
+            <div>{props.number}</div>
+            <div>{props.letters}</div>
+        </button>
     );
 }
 

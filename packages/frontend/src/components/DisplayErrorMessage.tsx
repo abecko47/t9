@@ -5,9 +5,9 @@ import {DisplayErrorObject} from "../model/DisplayErrorObject";
 
 function DisplayErrorMessage(props: DisplayErrorObject) {
     return (
-        <p className={props.displayError !== '' ? 'showError' : 'hideError'}>
+        <span className={props.displayError !== '' ? 'showError' : 'hideError'}>
             {props.displayError}
-        </p>
+        </span>
     );
 }
 
