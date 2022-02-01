@@ -1,6 +1,7 @@
 .app-wrapper {
   width: 100vw;
   height: 100vh;
+  background-color: #f5f5f5;
 }
 
 .row-flex-container {
@@ -40,13 +41,42 @@
 }
 
 .word-button {
-  padding: 24px;
+    background-color: #66bb6a;
+    border-radius: 8px;
+    border-style: none;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    height: 40px;
+    line-height: 20px;
+    list-style: none;
+    margin: 0;
+    outline: none;
+    padding: 10px 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: color 100ms;
+    vertical-align: baseline;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation
+}
+
+.word-button:hover,
+.word-button:focus {
+    background-color: #81c784;
 }
 
 .mobile-button {
   width: 64px;
   height: 64px;
   padding: 24px;
+  margin: 8px;
 }
 
 .absolute-top {
@@ -56,6 +86,8 @@
   text-align: center;
   padding: 32px 0 32px 0;
   font-size: 1.3rem;
+  color: #c50e29;
+  transition: all .2s;
 }
 
 .margin-top-24 {
@@ -70,3 +102,14 @@
   margin-right: 12px;
 }
 
+.show-error {
+  opacity: 1;
+}
+
+.hide-error {
+  opacity: 0;
+}
+
+.printed-text {
+    font-size: 1.5rem;
+}

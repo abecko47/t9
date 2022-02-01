@@ -5,7 +5,7 @@ import {DisplayErrorObject} from "../model/DisplayErrorObject";
 
 function DisplayErrorMessage(props: DisplayErrorObject) {
     return (
-        <span className={props.displayError !== '' ? 'showError' : 'hideError'}>
+        <span className={`absolute-top ${props.displayError !== '' ? 'show-error' : 'hide-error'}`}>
             {props.displayError}
         </span>
     );

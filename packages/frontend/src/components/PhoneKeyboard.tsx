@@ -78,11 +78,10 @@ function PhoneKeyboard() {
 
     return (
         <div className="col-flex-container center">
-            <div className="absolute-top">
-                <DisplayErrorMessage displayError={displayError}/>
-            </div>
+            <DisplayErrorMessage displayError={displayError}/>
+
             <div className="row-flex-container height-auto">
-                <span>{historyInput} {phoneOutput}</span>
+                <span className="printed-text">{historyInput} {phoneOutput}</span>
             </div>
 
             <div className="row-flex-container center height-auto">
@@ -108,7 +107,7 @@ function PhoneKeyboard() {
                     <div className="row-flex-container right">
                         <PhoneButton letters="___" isDisabled={isFetching} number="0" onClick={(e) => handleInputChange(e)}/>
                         <div className="row-flex-container width-auto">
-                            <button className="mobile-button col-flex-container width-auto" disabled={isFetching} onClick={() => clearState()}>
+                            <button className="word-button mobile-button col-flex-container width-auto" disabled={isFetching} onClick={() => clearState()}>
                                 <div>C</div>
                             </button>
                         </div>
