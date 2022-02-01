@@ -20,8 +20,8 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }]
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error"
     },
     "settings": {
         "import/resolver": {
