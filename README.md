@@ -22,7 +22,7 @@ Frontend is available at http://127.0.0.1:3000/
 
 Backend is available at http://127.0.0.1:3001/
 
-Right now trere is only `Dockerfile.local`, for production I highly recommend to create other dockerfiles, with production build, such as `npm run build`.
+Right now trere is only `Dockerfile.local`, for production I highly recommend to create other dockerfiles (and new prod `docker-compose.yml`), with production build, such as `npm run build`.
 
 ### Linting backend
 You can execute npm commands right from your enviroment:
