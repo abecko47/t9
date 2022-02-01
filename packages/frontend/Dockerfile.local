@@ -13,4 +13,4 @@ RUN chown -R node:node /var/www
 
 USER node
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
