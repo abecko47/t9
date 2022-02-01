@@ -19,7 +19,10 @@ docker-compose up -d
 You can see logs right in container, or if you want to see them in terminal, just skip flag `-d`.
 
 Frontend is available at http://127.0.0.1:3000/
+
 Backend is available at http://127.0.0.1:3001/
+
+Right now trere is only `Dockerfile.local`, for production I highly recommend to create other dockerfiles, with production build, such as `npm run build`.
 
 ### Linting backend
 You can execute npm commands right from your enviroment:
